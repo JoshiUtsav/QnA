@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(135deg, rgb(49, 79, 164), rgb(63, 134, 205));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+#container {
+  background: rgb(255, 255, 255);
+  margin: 1% 5%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 2% 5%;
+  max-width: 90%;
+}
+#QuestionHead {
+  font-size: 15px;
+  padding: 5%;
+  text-align: justify;
+}
+.option {
+  padding: 1.5%;
+  background-color: black;
+  color: white;
+  margin-bottom: 3%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+.option:hover {
+  background-color: rgba(0, 0, 0, 0.607);
+  color: rgb(255, 255, 255);
+}
+#checkanswer {
+  background-color: aqua;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 25px;
+  margin-top: 5%;
+  padding: 1%;
+}
+#checkanswer:hover {
+  background-color: rgb(17, 228, 228);
+  color: black;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+}
+
+.Question {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 600px) {
+  .container {
+    font-size: 24px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
