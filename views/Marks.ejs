@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Result Page | Marks</title>
-    <link rel="shortcut icon" href="../Static/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../Static/style.css" />
+    <link rel="shortcut icon" href="../static/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="correct">9</div>
+    <div class="wrapper">
+      <div class="correct"><%= receivedMarks %></div>
       <div class="slash">/</div>
       <div class="totalQuestion">10</div>
     </div>
 
-    <div class="Question">
+    <div class="listOfQuestion">
       <table>
         <tr>
           <th>Question</th>
@@ -22,7 +22,7 @@
           <th>Correct Ans</th>
         </tr>
         <tr>
-          <td>Alfreds Futterkiste</td>
+          <td id="Que">Alfreds Futterkiste</td>
           <td>Maria Anders</td>
           <td>Germany</td>
         </tr>
@@ -33,6 +33,6 @@
         </tr>
       </table>
     </div>
-    <script type="module" src="../Static/result.js"></script>
+    <script type="module" src="../static/result.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 const options = document.getElementsByClassName('options');
+const submit = document.getElementById('checkanswer');
 let currentQuestionIndex = 0;
 let marks = 0;
 
@@ -22,6 +23,28 @@ const displayQuestion = (question) => {
     labels[3].innerText = question.D;
 };
 
+const sendMarksToServer = async (marks) => {
+    const url = 'http://localhost/marks';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ marks })
+    };
+
+    try {
+        const response = await fetch(url, options);
+        if (response.ok) {
+            console.log('Marks sent successfully');
+        } else {
+            console.error('Error sending marks to server:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error sending marks to server:', error);
+    }
+};
+
 const checkAnswer = async () => {
     const Questions = await fetchQuestions();
     const selectedOption = document.querySelector('input[name="option"]:checked');
@@ -29,30 +52,27 @@ const checkAnswer = async () => {
         alert('Please select an option');
         return;
     }
-
     const selectedAnswer = selectedOption.value;
     const currentQuestion = Questions[currentQuestionIndex];
-    if (selectedAnswer === currentQuestion.Answer) {
-        marks += 1;
-    } else {
-        marks -= 0.25;
-    }
+    if (selectedAnswer === currentQuestion.Answer) { marks += 1 } else { marks -= 0.25 }
     currentQuestionIndex++;
-    if (currentQuestionIndex < Questions.length) {
-        newQue();
-    } else {
-        location.href = '/marks';
-    }
+    if (currentQuestionIndex < Questions.length) { newQue() };
 };
 
-console.log(marks);
+submit.addEventListener('click', async () => {
+    checkAnswer();
 
-const submit = document.getElementById('checkanswer');
-submit.addEventListener('click', checkAnswer);
+    const Questions = await fetchQuestions();
+    if (currentQuestionIndex === Questions.length) {
+        sendMarksToServer(marks);
+        location.href = '/marks';
+    }
+});
+
+
 
 const newQue = async () => {
     const Questions = await fetchQuestions();
     if (currentQuestionIndex < Questions.length) { displayQuestion(Questions[currentQuestionIndex]) };
 };
-
 newQue();
