@@ -54,7 +54,12 @@ const checkAnswer = async () => {
     }
     const selectedAnswer = selectedOption.value;
     const currentQuestion = Questions[currentQuestionIndex];
-    if (selectedAnswer === currentQuestion.Answer) { marks += 1 } else { marks -= 0.25 }
+    if (selectedAnswer === currentQuestion.Answer) { marks += 1 }
+    else if (selectedAnswer != currentQuestion.Answer) {
+        marks -= 0.25;
+    }
+    else { marks -= 0.25 }
+    console.log(marks);
     currentQuestionIndex++;
     if (currentQuestionIndex < Questions.length) { newQue() };
 };

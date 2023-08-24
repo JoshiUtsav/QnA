@@ -11,7 +11,7 @@
     <div class="wrapper">
       <div class="correct"><%= receivedMarks %></div>
       <div class="slash">/</div>
-      <div class="totalQuestion">10</div>
+      <div class="totalQuestion"><%= Question.length %></div>
     </div>
 
     <div class="listOfQuestion">
@@ -22,17 +22,19 @@
           <th>Correct Ans</th>
         </tr>
         <tr>
-          <td id="Que">Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
+          <td class="question"><%= Question[0].Question %></td>
+          <td class="yourAnswer"><%= Question[0].B %></td>
+          <td class="rightAnswer"><%= Question[0].A %></td>
         </tr>
         <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
+          <td class="question"><%= Question[1].Question %></td>
+          <td class="yourAnswer"><%= Question[1].B %></td>
+          <td class="rightAnswer"><%= Question[1].A %></td>
         </tr>
       </table>
     </div>
-    <script type="module" src="../static/result.js"></script>
+    <script>
+      
+    </script>
   </body>
 </html>
