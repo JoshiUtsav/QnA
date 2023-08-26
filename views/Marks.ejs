@@ -19,22 +19,16 @@
         <tr>
           <th>Question</th>
           <th>Your Answer</th>
-          <th>Correct Ans</th>
+          <th>Correct Answer</th>
         </tr>
+        <% for(var i = 0; i < Question.length; i++) { %>
         <tr>
-          <td class="question"><%= Question[0].Question %></td>
-          <td class="yourAnswer"><%= Question[0].B %></td>
-          <td class="rightAnswer"><%= Question[0].A %></td>
+          <td class="question"><%= Question[i].Question %></td>
+          <td class="yourAnswer"><%= Question[i].B %></td>
+          <td class="rightAnswer"><%= Question[i].A %></td>
         </tr>
-        <tr>
-          <td class="question"><%= Question[1].Question %></td>
-          <td class="yourAnswer"><%= Question[1].B %></td>
-          <td class="rightAnswer"><%= Question[1].A %></td>
-        </tr>
+        <% } %>
       </table>
     </div>
-    <script>
-      
-    </script>
   </body>
 </html>

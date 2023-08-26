@@ -5,7 +5,7 @@ let marks = 0;
 
 const fetchQuestions = async () => {
     try {
-        const response = await fetch('http://localhost/Ques');
+        const response = await fetch('http://localhost:8000/question');
         const data = await response.json();
         return data;
     } catch (error) {
@@ -24,7 +24,7 @@ const displayQuestion = (question) => {
 };
 
 const sendMarksToServer = async (marks) => {
-    const url = 'http://localhost/marks';
+    const url = 'http://localhost:8000/marks';
     const options = {
         method: 'POST',
         headers: {
@@ -32,7 +32,6 @@ const sendMarksToServer = async (marks) => {
         },
         body: JSON.stringify({ marks })
     };
-
     try {
         const response = await fetch(url, options);
         if (response.ok) {
