@@ -17,12 +17,14 @@
     <div class="listOfQuestion">
       <table>
         <tr>
+          <th>S no</th>
           <th>Question</th>
           <th>Your Answer</th>
           <th>Correct Answer</th>
         </tr>
         <% for(var i = 0; i < Question.length; i++) { %>
         <tr>
+          <td id="serialNumber"><%=  i+1  %></td>
           <td class="question"><%= Question[i].Question %></td>
           <td class="yourAnswer"><%= Question[i].B %></td>
           <td class="rightAnswer"><%= Question[i].A %></td>
